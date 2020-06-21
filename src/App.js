@@ -22,7 +22,7 @@ class App extends Component {
       {
         id: 2,
         name: "Pogea Racing Zeus",
-        price: 34300,
+        price: 65400,
         cart: false,
         photo:
           "https://www.hdwallpapers.in/thumbs/2019/pogea_racing_zeus_2019_4k-t2.jpg",
@@ -30,7 +30,7 @@ class App extends Component {
       {
         id: 3,
         name: "Mitsubishi",
-        price: 34300,
+        price: 16700,
         cart: false,
         photo:
           "https://www.hdwallpapers.in/thumbs/2019/mitsubishi_mi_tech_concept_2019_4k_2-t2.jpg",
@@ -38,14 +38,14 @@ class App extends Component {
       {
         id: 4,
         name: "Polestar 2",
-        price: 34300,
+        price: 46400,
         cart: false,
         photo: "https://www.hdwallpapers.in/thumbs/2019/polestar_2_2019-t2.jpg",
       },
       {
         id: 5,
         name: "Range Rover Velar",
-        price: 34300,
+        price: 37800,
         cart: false,
         photo:
           "https://www.hdwallpapers.in/thumbs/2019/range_rover_velar_svautobiography_dynamic_edition_2019_4k_8k-t2.jpg",
@@ -53,7 +53,7 @@ class App extends Component {
       {
         id: 6,
         name: "Acura NSX",
-        price: 34300,
+        price: 55700,
         cart: false,
         photo:
           "https://www.hdwallpapers.in/thumbs/2019/wolf_racing_ford_mustang_one_of_7_2019-t1.jpg",
@@ -133,7 +133,7 @@ class App extends Component {
                     <span
                       className={cx("badge", "badge-pill", "badge-success")}
                     >
-                      {this.state.count == 0 ? null : this.state.count}
+                      {this.state.count === 0 ? null : this.state.count}
                     </span>
                   </b>
                 </Button>
