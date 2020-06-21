@@ -4,9 +4,13 @@ import cx from "classnames";
 
 const Product = (prop) => {
   return (
-    <div className={cx("card", "text-center")} style={{ width: 350 }}>
+    <div className={cx("card", "text-center", "col-12")}>
       <div className="card-body">
-        <img className="card-img-top" src={prop.photo} alt="CardImage" />
+        <img
+          className={cx("card-img-top", "img-fluid")}
+          src={prop.photo}
+          alt="CardImage"
+        />
         <h5 className="card-title">
           <b>{prop.name}</b>
         </h5>
