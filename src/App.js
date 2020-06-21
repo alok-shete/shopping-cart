@@ -133,7 +133,7 @@ class App extends Component {
                     <span
                       className={cx("badge", "badge-pill", "badge-success")}
                     >
-                      {this.state.count}
+                      {this.state.count == 0 ? null : this.state.count}
                     </span>
                   </b>
                 </Button>
