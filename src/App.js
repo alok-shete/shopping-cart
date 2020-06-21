@@ -101,7 +101,7 @@ class App extends Component {
     return (
       <div>
         <h1>{this.state.products.id}</h1>
-        <div className="container">
+        <div>
           <nav
             className={cx(
               "navbar",
@@ -240,7 +240,7 @@ class App extends Component {
             </form>
           </nav>
         </div>
-        <div className="container">
+        <div>
           <div className="card-columns">
             {this.state.products.map((product) => (
               <Product
