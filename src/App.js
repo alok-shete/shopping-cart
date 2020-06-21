@@ -62,6 +62,7 @@ class App extends Component {
     count: 0,
     totalPrice: 0,
     show: false,
+    order: false,
   };
 
   Cart = (id) => {
@@ -78,7 +79,7 @@ class App extends Component {
         total += products[i].price;
       }
     }
-    this.setState({ products, count: count, totalPrice: total });
+    this.setState({ products, count: count, totalPrice: total, order: false });
   };
 
   handleClose = () => {
@@ -87,6 +88,13 @@ class App extends Component {
 
   handleShow = () => {
     this.setState({ show: true });
+  };
+  orderPlace = () => {
+    const products = [...this.state.products];
+    for (var i = 0; i < products.length; i++) {
+      products[i].cart = false;
+    }
+    this.setState({ products, count: 0, totalPrice: 0, order: true });
   };
 
   render() {
@@ -167,11 +175,36 @@ class App extends Component {
                           </tr>
                         </tbody>
                       </Table>
+                    ) : this.state.order ? (
+                      <div className={cx("container", "text-center")}>
+                        <h3>
+                          <i
+                            className={cx(
+                              "fa",
+                              "fa-shopping-cart",
+                              "fa-5x",
+                              "cartIcon"
+                            )}
+                            aria-hidden="true"
+                          >
+                            {" "}
+                          </i>
+                          <br />
+                          <br />
+
+                          <b>Order Placed</b>
+                        </h3>
+                      </div>
                     ) : (
                       <div className={cx("container", "text-center")}>
                         <h3>
                           <i
-                            className={cx("fa", "fa-shopping-cart", "fa-5x")}
+                            className={cx(
+                              "fa",
+                              "fa-shopping-cart",
+                              "fa-5x",
+                              "cartIcon"
+                            )}
                             aria-hidden="true"
                           >
                             {" "}
@@ -184,7 +217,24 @@ class App extends Component {
                       </div>
                     )}
                   </Modal.Body>
-                  <Modal.Footer></Modal.Footer>
+                  <Modal.Footer>
+                    {this.state.count !== 0 ? (
+                      <div className={cx("container", "text-center")}>
+                        <button
+                          className={cx(
+                            "btn",
+                            "btn-outline-success",
+                            "my-2",
+                            "my-sm-0"
+                          )}
+                          onClick={this.orderPlace}
+                          type="submit"
+                        >
+                          Place Order
+                        </button>
+                      </div>
+                    ) : null}
+                  </Modal.Footer>
                 </Modal>
               </>
             </form>
@@ -202,8 +252,8 @@ class App extends Component {
                 product={product}
                 bCart={
                   !product.cart
-                    ? cx("btn", "btn-info")
-                    : cx("btn", "btn-success")
+                    ? cx("btn", "btn-outline-dark")
+                    : cx("btn", "btn-outline-success")
                 }
                 mCart={!product.cart ? "Add To Cart" : "In Cart"}
               />
